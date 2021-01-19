@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Provider } from "react-redux";
 const apiURL = "https://api.themoviedb.org/3/movie";
 const api_key = "028396ec7ab08b8fb521609b9c76dda5";
 
@@ -30,7 +29,7 @@ export function fetchRelatedMovies(id) {
 			.then(({ data }) => {
 				return dispatch({ type: "SET_RELATED_MOVIES", payload: data.results });
 			})
-			.catch((err) => console.log(err.response, `<<<<<<< ERROR CATCH`))
+			.catch((err) => console.log(err.response))
 			.finally(() => dispatch({ type: "FINISH_FETCH" }));
 	};
 }

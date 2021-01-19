@@ -2,7 +2,7 @@ import { Text, StyleSheet, Image, ActivityIndicator, TouchableOpacity, View } fr
 import React, { useEffect } from 'react'
 import { fetchRelatedMovies } from '../store/actions'
 import {useDispatch, useSelector} from 'react-redux'
-import { FlatList, ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 
 export default function Details({ route, navigation }) {
     const { movie } = route.params

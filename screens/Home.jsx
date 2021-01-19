@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
-import {ActivityIndicator, StyleSheet, Text, View, Image} from 'react-native'
-import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import axios from 'axios' 
+import {ActivityIndicator, StyleSheet, View, Image} from 'react-native'
+import {ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux'
 import {fetchMovies} from '../store/actions'
 

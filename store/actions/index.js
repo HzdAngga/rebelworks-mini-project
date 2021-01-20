@@ -2,16 +2,20 @@ import axios from "axios";
 const apiURL = "https://api.themoviedb.org/3/movie";
 const api_key = "028396ec7ab08b8fb521609b9c76dda5";
 
-export function fetchMovies() {
+export function fetchMovies(page) {
 	return (dispatch) => {
 		dispatch({ type: "START_FETCH" });
 		axios({
 			method: "GET",
 			url: apiURL + "/now_playing",
-			params: { api_key },
+			params: { api_key, page },
 		})
 			.then(({ data }) => {
-				return dispatch({ type: "SET_MOVIES", payload: data.results });
+				// console.log(data, "<<<<INI DATA");
+				return dispatch({
+					type: "SET_MOVIES",
+					payload: { movies: data.results, page },
+				});
 			})
 			.catch((err) => console.log(err.response, `<<<<<<< ERROR CATCH`))
 			.finally(() => dispatch({ type: "FINISH_FETCH" }));

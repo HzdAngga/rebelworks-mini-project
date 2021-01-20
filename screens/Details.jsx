@@ -22,24 +22,19 @@ export default function Details({ route, navigation }) {
                                 style={styles.poster}
                                 source={{ uri: 'https://image.tmdb.org/t/p/w500' + movie.poster_path }}
                         />
-                    </View>
-                    
+                    </View>                    
                     <View style={styles.textContainer}>
                         <Text style={styles.title}>{ movie.title}</Text>
                         <Text>Released: {movie.release_date.substring(0, 4)}</Text>
                         <Text style={styles.description}>{movie.overview}</Text>
-                    </View>
-
-                    
-            
+                    </View>                                
                 <Text style={styles.title}>Related Movies</Text>
                 { isLoading && <ActivityIndicator style={styles.loading} size="large" color="#0000ff" />}
-                
                 <ScrollView horizontal>
-                <View style={styles.moviesContainer}>
-                {relatedMovies.map(relatedMovie => {
-                    return (
-                                <TouchableOpacity
+                    <View style={styles.moviesContainer}>
+                        {relatedMovies.map(relatedMovie => {
+                            return (
+                                <TouchableOpacity                                    
                                     key={relatedMovie.id}
                                     onPress={() => toDetails(relatedMovie)}>
                                     <Image
@@ -50,11 +45,10 @@ export default function Details({ route, navigation }) {
                     )
                     })
                 }
-                </View>
-                </ScrollView>
+                    </View>                   
+                </ScrollView>                
                 </>
-        </ScrollView>
-        
+        </ScrollView>        
     )
 }
 

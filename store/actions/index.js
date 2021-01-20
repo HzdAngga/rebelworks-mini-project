@@ -11,7 +11,6 @@ export function fetchMovies(page) {
 			params: { api_key, page },
 		})
 			.then(({ data }) => {
-				// console.log(data, "<<<<INI DATA");
 				return dispatch({
 					type: "SET_MOVIES",
 					payload: { movies: data.results, page },
